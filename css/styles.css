@@ -37,7 +37,6 @@ body {
 }
 
 .container {
-  display: block;
   margin: 0 auto;
   width: 1200px;
   padding: 0 15px;
@@ -46,6 +45,20 @@ body {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Скрытие заголовков */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* Шапка сайта */
@@ -127,8 +140,8 @@ img {
   letter-spacing: 0.02em;
 }
 
-.contacts .email {
-  margin-right: 50px;
+.contacts-item + .contacts-item {
+  margin-left: 50px;
 }
 
 .page-header .contacts {
@@ -150,24 +163,26 @@ img {
 /* Герой */
 
 .hero {
+  padding-top: 200px;
+  padding-bottom: 200px;
+
   text-align: center;
   color: var(--white-color);
   background-color: var(--hero-bkgrnd);
 }
 
-.hero > .container {
-  padding-top: 200px;
-  padding-bottom: 200px;
-}
-
-.hero h1 {
+.hero-title {
   margin-top: 0;
   margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 696px;
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 /* Кнопка */
@@ -226,9 +241,6 @@ button:focus {
 }
 
 /* временно скрытый заголовок */
-.features .title {
-  display: none;
-}
 
 .features-list .feature-title {
   color: var(--title-color);
@@ -258,7 +270,10 @@ button:focus {
 
 .jobs-list {
   display: flex;
-  justify-content: space-between;
+}
+
+.jobs-list .item + .item {
+  margin-left: 30px;
 }
 
 .jobs {
@@ -418,11 +433,12 @@ button:focus {
 /* Футер */
 
 .footer .logo {
+  margin-right: 0;
   margin-bottom: 20px;
   color: var(--white-color);
 }
 
-.footer > .container {
+.footer {
   padding-top: 60px;
   padding-bottom: 60px;
 }
